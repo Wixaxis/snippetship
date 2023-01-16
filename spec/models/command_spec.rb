@@ -8,6 +8,15 @@
 #  title      :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  tool_id    :bigint
+#
+# Indexes
+#
+#  index_commands_on_tool_id  (tool_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (tool_id => tools.id)
 #
 require 'rails_helper'
 
