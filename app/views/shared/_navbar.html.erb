@@ -1,0 +1,46 @@
+<nav class="navbar navbar-dark navbar-expand-lg bg-dark border border-light rounded">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/" style="font-family:courier new; ">
+      <%= image_tag "snippetship_logo_no_padding.png", width: 30, height: 24, class: "d-inline-block align-text-top" %>
+      SNIPPETSHIP
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Tools</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled text-warning"><%= "#{notice} #{alert}" %></a>
+        </li>
+      </ul>
+      <div class="btn-group dropstart">
+        <button class="btn btn-dark dropdown-toggle border border-light" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <%= current_user&.name || "Sing up or Log in" %>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-dark">
+          <% if user_signed_in? %>
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <% if current_user&.admin %>
+              <li><a class="dropdown-item" href="/admin">Admin panel</a></li>
+            <% end %>
+            <li>
+              <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            </li>
+          <% else %>
+            <li><a class="dropdown-item" href="/users/sign_in">Log in</a></li>
+            <li><a class="dropdown-item" href="/users/sign_up">Sign up</a></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
