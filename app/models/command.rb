@@ -2,13 +2,14 @@
 #
 # Table name: commands
 #
-#  id         :bigint           not null, primary key
-#  body       :text
-#  tags       :string
-#  title      :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  tool_id    :bigint
+#  id          :bigint           not null, primary key
+#  body        :text
+#  description :string
+#  tags        :string
+#  title       :string
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  tool_id     :bigint
 #
 # Indexes
 #
@@ -22,6 +23,6 @@ class Command < ApplicationRecord
   belongs_to :tool
 
   def build_command
-    "cd (User project path)/(project name) && #{tool.cli_name} #{body}"
+    "#{tool.cli_name} #{body}"
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_16_210215) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_16_223736) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,7 +21,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_16_210215) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "tool_id"
+    t.string "description"
     t.index ["tool_id"], name: "index_commands_on_tool_id"
+  end
+
+  create_table "project_tools", force: :cascade do |t|
+    t.bigint "project_id"
+    t.bigint "tool_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_project_tools_on_project_id"
+    t.index ["tool_id"], name: "index_project_tools_on_tool_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -29,6 +39,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_16_210215) do
     t.string "folder_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "project_tools_id"
+    t.index ["project_tools_id"], name: "index_projects_on_project_tools_id"
   end
 
   create_table "tools", force: :cascade do |t|
@@ -36,7 +48,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_16_210215) do
     t.string "cli_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "project_tools_id"
+    t.index ["project_tools_id"], name: "index_tools_on_project_tools_id"
   end
 
   add_foreign_key "commands", "tools"
+  add_foreign_key "projects", "project_tools", column: "project_tools_id"
+  add_foreign_key "tools", "project_tools", column: "project_tools_id"
 end

@@ -2,11 +2,20 @@
 #
 # Table name: tools
 #
-#  id         :bigint           not null, primary key
-#  cli_name   :string
-#  name       :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id               :bigint           not null, primary key
+#  cli_name         :string
+#  name             :string
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  project_tools_id :bigint
+#
+# Indexes
+#
+#  index_tools_on_project_tools_id  (project_tools_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (project_tools_id => project_tools.id)
 #
 require 'rails_helper'
 
