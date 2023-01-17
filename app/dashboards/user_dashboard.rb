@@ -9,6 +9,7 @@ class UserDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
+    admin: Field::Boolean,
     confirmation_sent_at: Field::DateTime,
     confirmation_token: Field::String,
     confirmed_at: Field::DateTime,
@@ -17,6 +18,8 @@ class UserDashboard < Administrate::BaseDashboard
     email: Field::String,
     encrypted_password: Field::String,
     failed_attempts: Field::Number,
+    first_name: Field::String,
+    last_name: Field::String,
     last_sign_in_at: Field::DateTime,
     last_sign_in_ip: Field::String,
     locked_at: Field::DateTime,
@@ -26,6 +29,7 @@ class UserDashboard < Administrate::BaseDashboard
     sign_in_count: Field::Number,
     unconfirmed_email: Field::String,
     unlock_token: Field::String,
+    username: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -37,15 +41,16 @@ class UserDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
     id
+    admin
     confirmation_sent_at
     confirmation_token
-    confirmed_at
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
     id
+    admin
     confirmation_sent_at
     confirmation_token
     confirmed_at
@@ -54,6 +59,8 @@ class UserDashboard < Administrate::BaseDashboard
     email
     encrypted_password
     failed_attempts
+    first_name
+    last_name
     last_sign_in_at
     last_sign_in_ip
     locked_at
@@ -63,6 +70,7 @@ class UserDashboard < Administrate::BaseDashboard
     sign_in_count
     unconfirmed_email
     unlock_token
+    username
     created_at
     updated_at
   ].freeze
@@ -71,6 +79,7 @@ class UserDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
+    admin
     confirmation_sent_at
     confirmation_token
     confirmed_at
@@ -79,6 +88,8 @@ class UserDashboard < Administrate::BaseDashboard
     email
     encrypted_password
     failed_attempts
+    first_name
+    last_name
     last_sign_in_at
     last_sign_in_ip
     locked_at
@@ -88,6 +99,7 @@ class UserDashboard < Administrate::BaseDashboard
     sign_in_count
     unconfirmed_email
     unlock_token
+    username
   ].freeze
 
   # COLLECTION_FILTERS

@@ -3,6 +3,7 @@
 # Table name: users
 #
 #  id                     :bigint           not null, primary key
+#  admin                  :boolean          default(FALSE)
 #  confirmation_sent_at   :datetime
 #  confirmation_token     :string
 #  confirmed_at           :datetime
@@ -39,4 +40,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :confirmable, :lockable, :trackable
+
+  def name
+    username || ("#{first_name} #{last_name}" if first_name.present? && last_name.present?) || email
+  end
 end
