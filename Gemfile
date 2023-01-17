@@ -36,6 +36,7 @@ group :development do
   gem 'htmlbeautifier'
   gem 'ruby-lsp', '~> 0.3.7'
   gem 'web-console'
+  gem 'letter_opener'
 end
 
 group :test do

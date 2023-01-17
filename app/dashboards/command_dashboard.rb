@@ -10,8 +10,10 @@ class CommandDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     id: Field::Number,
     body: Field::Text,
+    description: Field::String,
     tags: Field::String,
     title: Field::String,
+    tool: Field::BelongsTo,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -24,8 +26,8 @@ class CommandDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = %i[
     id
     body
+    description
     tags
-    title
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -33,8 +35,10 @@ class CommandDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = %i[
     id
     body
+    description
     tags
     title
+    tool
     created_at
     updated_at
   ].freeze
@@ -44,8 +48,10 @@ class CommandDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
     body
+    description
     tags
     title
+    tool
   ].freeze
 
   # COLLECTION_FILTERS

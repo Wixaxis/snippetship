@@ -8,7 +8,13 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   </head>
   <body>
-    <h1>TOPBAR</h1>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <% if user_signed_in? %>
+      <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
+    <% else %>
+      <a href="/users/sign_in">Sign in</a>
+    <% end %>
     <%= yield %>
   </body>
 </html>

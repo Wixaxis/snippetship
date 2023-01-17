@@ -148,6 +148,10 @@ GEM
       kaminari-core (= 1.2.2)
     kaminari-core (1.2.2)
     language_server-protocol (3.17.0.2)
+    launchy (2.5.2)
+      addressable (~> 2.8)
+    letter_opener (1.8.1)
+      launchy (>= 2.2, < 3)
     loofah (2.18.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -348,6 +352,7 @@ DEPENDENCIES
   htmlbeautifier
   importmap-rails
   jbuilder
+  letter_opener
   pg (~> 1.1)
   pry-byebug (~> 3.10, >= 3.10.1)
   puma (~> 5.0)
