@@ -11,6 +11,8 @@
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  failed_attempts        :integer          default(0), not null
+#  first_name             :string
+#  last_name              :string
 #  last_sign_in_at        :datetime
 #  last_sign_in_ip        :string
 #  locked_at              :datetime
@@ -20,6 +22,7 @@
 #  sign_in_count          :integer          default(0), not null
 #  unconfirmed_email      :string
 #  unlock_token           :string
+#  username               :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #
@@ -34,5 +37,6 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :confirmable, :lockable, :trackable
+         :recoverable, :rememberable, :validatable,
+         :confirmable, :lockable, :trackable
 end
