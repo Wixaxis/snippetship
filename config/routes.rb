@@ -8,6 +8,10 @@ Rails.application.routes.draw do
 
     root to: 'commands#index'
   end
+
+  resources :projects
+  resources :tools
+
   root 'home#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

@@ -1,0 +1,20 @@
+<div class="row justify-content-between py-3 w-75 mx-auto">
+  <h1 class="col h-100 p-0">Tools</h1>
+  <button class="col-1 btn btn-success w-auto">New tool</button>
+</div>
+<table class="table table-dark table-striped w-75 mx-auto">
+  <thead>
+    <tr>
+      <th></th>
+      <th scope="col">Name</th>
+      <th scope="col">CLI name</th>
+      <th scope="col">Users</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody class="table-group-divider">
+    <% Tool.all.each do |t| %>
+      <%= render partial: "tool_element", locals: { tool: t } %>
+    <% end %>
+  </tbody>
+</table>
