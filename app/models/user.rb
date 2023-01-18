@@ -52,6 +52,10 @@ class User < ApplicationRecord
   has_many :tools, through: :projects
 
   def name
-    username || ("#{first_name} #{last_name}" if first_name.present? && last_name.present?) || email
+    return username unless username.empty?
+
+    return "#{first_name} #{last_name}" if [first_name, last_name].compact_blank.any?
+
+    email
   end
 end
