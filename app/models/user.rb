@@ -26,6 +26,7 @@
 #  username               :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  user_projects_id       :bigint
 #
 # Indexes
 #
@@ -33,6 +34,11 @@
 #  index_users_on_email                 (email) UNIQUE
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #  index_users_on_unlock_token          (unlock_token) UNIQUE
+#  index_users_on_user_projects_id      (user_projects_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (user_projects_id => user_projects.id)
 #
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
@@ -40,6 +46,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :confirmable, :lockable, :trackable
+
+  has_many :user_projects
+  has_many :projects, through: :user_projects
+  has_many :tools, through: :projects
 
   def name
     username || ("#{first_name} #{last_name}" if first_name.present? && last_name.present?) || email
