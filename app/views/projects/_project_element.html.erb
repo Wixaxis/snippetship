@@ -2,6 +2,13 @@
   <td></td>
   <td class="align-middle"><%= project.name %></td>
   <td class="align-middle">/<%= project.folder_name %></td>
-  <td class="align-middle">0</td>
-  <td><button class="float-end btn btn-dark border border-light w-auto" href="/projects#update">View</button></td>
+  <td class="align-middle"><%= project.users.pluck(:id).uniq.count %></td>
+  <td>
+    <%= button_to "View", project_path(project), method: :get, class: "float-end btn btn-dark border border-light w-auto mx-3" %>
+    <% if current_user.projects.include?(project) %>
+      <%= button_to "Unsubscribe", subscribe_projects_path, method: :post, params: { project_id: project.id }, class: "float-end btn btn-dark border border-danger text-danger", style: "width: 110px" %>
+    <% else %>
+      <%= button_to "Subscribe", subscribe_projects_path, method: :post, params: { project_id: project.id }, class: "float-end btn btn-dark border border-success text-success", style: "width: 110px" %>
+    <% end %>
+  </td>
 </tr>

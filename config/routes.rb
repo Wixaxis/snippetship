@@ -9,7 +9,11 @@ Rails.application.routes.draw do
     root to: 'commands#index'
   end
 
-  resources :projects
+  resources :projects do
+    collection do
+      post :subscribe
+    end
+  end
   resources :tools
 
   root 'home#index'

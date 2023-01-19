@@ -3,6 +3,7 @@
 # Table name: user_projects
 #
 #  id         :bigint           not null, primary key
+#  owner      :boolean          default(FALSE)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  project_id :bigint

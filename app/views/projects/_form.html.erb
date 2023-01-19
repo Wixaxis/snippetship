@@ -1,0 +1,4 @@
+<%= simple_form_for @project do |f| %>
+  <%= f.input :name, required: true, disabled: !project_editable? %>
+  <%= f.button :submit, class: "btn btn-dark border border-light" %>
+<% end %>
