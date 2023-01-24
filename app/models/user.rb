@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: users
@@ -52,7 +54,7 @@ class User < ApplicationRecord
   has_many :tools, through: :projects
 
   def name
-    return username unless username.empty?
+    return username unless username.blank?
 
     return "#{first_name} #{last_name}" if [first_name, last_name].compact_blank.any?
 

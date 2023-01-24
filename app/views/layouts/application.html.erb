@@ -12,7 +12,7 @@
   </head>
   <body class="bg-dark text-light">
     <%= render partial: "shared/navbar" %>
-    <div class="container mt-4 border border-light rounded" style="height:calc(100vh - 120px)">
+    <div class="container-fluid mt-3 border border-light rounded overflow-auto" style="height:calc(100vh - 85px); width:calc(100vw - 30px);">
       <%= yield %>
     </div>
   </body>

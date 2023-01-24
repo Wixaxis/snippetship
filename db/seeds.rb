@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # 10.times do
 #   name = Faker::App.name
 #   Tool.create(name:, cli_name: name.downcase[0..4], commands: (0..10).each.map do

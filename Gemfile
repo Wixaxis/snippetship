@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.1.3'
+ruby '3.1.2'
 gem 'rails', '~> 7.0.2', '>= 7.0.2.4'
 
 gem 'administrate', '~> 0.18.0'
@@ -20,6 +22,7 @@ gem 'audited'
 gem 'devise', '~> 4.8', '>= 4.8.1'
 gem 'sass-rails', '~> 6.0'
 gem 'simple_form'
+gem 'sorbet-runtime'
 
 group :development, :test do
   gem 'byebug', '~> 11.1', '>= 11.1.3'
@@ -34,9 +37,10 @@ end
 group :development do
   gem 'annotate'
   gem 'htmlbeautifier'
-  gem 'ruby-lsp', '~> 0.3.7'
-  gem 'web-console'
   gem 'letter_opener'
+  gem 'ruby-lsp', '~> 0.3.7'
+  gem 'sorbet'
+  gem 'web-console'
 end
 
 group :test do

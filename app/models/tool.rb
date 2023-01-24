@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: tools
@@ -22,7 +24,6 @@ class Tool < ApplicationRecord
   has_many :project_tools
   has_many :projects, through: :project_tools
   has_many :users, through: :projects
-
 
   def add_command(title, body, description)
     commands.create(title:, body:, tags: name, description:)

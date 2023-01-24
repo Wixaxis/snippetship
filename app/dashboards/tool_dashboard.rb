@@ -1,4 +1,6 @@
-require "administrate/base_dashboard"
+# frozen_string_literal: true
+
+require 'administrate/base_dashboard'
 
 class ToolDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
@@ -16,7 +18,7 @@ class ToolDashboard < Administrate::BaseDashboard
     project_tools_id: Field::Number,
     projects: Field::HasMany,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    updated_at: Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES
